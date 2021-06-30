@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700" rel="stylesheet"/><title>Clear View Escapes</title><meta name="keywords" content="Travel planning, travel bundles, travel escapes, affordable travel"/><meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you."/><link href="styles.99302cca394f8ad1cce4.css" rel="stylesheet"></head><body><div class="relative main-hero min-height"><div class="absolute hero-wrapper-text py-5 flex align-center justify-center flex-col h-auto"><h1 class="landing-title md:text-3xl text-black font-bold"> <?php echo $landingtxt; ?> </h1><p class="landing-description text-black font-semibold text-justify px-3"> <?php echo $landingdesc; ?> </p><div class="flex justify-around flex-wrap"><button class="text-white font-bold rounded border-transparent mt-5 p-0"><a class="hover:text-white text-white block py-2 px-4" href="#programare_online">Programare online</a></button> <button class="text-white font-bold rounded border-transparent mt-5 p-0"><a class="hover:text-white text-white block py-2 px-4 flex justify-center" href="tel:0723121782" onclick="gtag_report_conversion(https://centrulmedicalbacau.ro/test-covid/)">Programare telefonică<span class="sm:block hidden">: 0723 121 782</span></a></button></div></div></div><div id="programare_online" class="programare contact-header text-center py-5"><h5 class="text-3xl md:text-5xl">Programare</h5></div><div class="programare-section py-8"><div class="programare-heading text-center container m-auto"><div class="md:w-4/12 border-2 m-auto p-5 flex justify-around contact-button"><a href="tel:0723121782" id="telbutton" onclick="gtag_report_conversion(https://centrulmedicalbacau.ro/test-covid/)"><p><svg enable-background="new 0 0 384 384" version="1.1" viewBox="0 0 384 384" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m353.19 252.05c-23.51 0-46.594-3.677-68.469-10.906-10.719-3.656-23.896-0.302-30.438 6.417l-43.177 32.594c-50.073-26.729-80.917-57.563-107.28-107.26l31.635-42.052c8.219-8.208 11.167-20.198 7.635-31.448-7.26-21.99-10.948-45.063-10.948-68.583 1e-3 -16.991-13.822-30.814-30.812-30.814h-70.52c-16.99 0-30.813 13.823-30.813 30.813 0 194.75 158.44 353.19 353.19 353.19 16.99 0 30.813-13.823 30.813-30.813v-70.323c-1e-3 -16.989-13.824-30.812-30.813-30.812z"/></svg> <span>Telefon: 0723 121 782</span></p></a></div></div><div class="iframe-container container m-auto md:w-1/2 mt-5"><iframe id="thisiframe" src="https://testare-psihomed.programero.ro/index-iframe" height="200px"></iframe></div></div><div class="programare contact-header text-center py-5"><h5 class="text-3xl md:text-5xl">Servicii de testare cu rezultatul în aceeași zi</h5></div> <?php
+foreach ($repeatersection as $key =>
+    $section) { ?> <div id="<?php echo preg_replace('/\s+/', '', $section['titlu_sectiune']); ?>" class="test-pcr py-12 md:px-0 mt-5 <?php
+        if
+        ($key
+        ==
+        1)
+        {
+        echo
+        'background-blue';
+        }
+        ?> "><div class="text-center flex flex-col justify-between py-5 mt-5"><h3 class="text-3xl font-bold px-3"> <?php echo $section['titlu_sectiune']; ?> </h3><div class="underline <?php if ($key == 1) { echo 'underline-white'; } ?>"></div></div><div class="content-section lg:container lg:m-auto md:flex flex-col-reverse xl:flex-row justify-around py-5"><div class="section-left flex flex-col justify-center xl:w-1/2 max-h-full mt-2 px-10 <?php
+            if
+            ($key
+            ==
+            1)
+            {
+            echo
+            '
+            order-2';
+            }
+            ?> "><h5 class="font-bold text-2xl mb-2"> <?php echo $section['subtitlu_sectiune']; ?> </h5><p class="sectiondescription text-gray-600 mt-2"> <?php echo $section['descriere_sectiune']; ?> </p></div><div class="xl:w-1/2 md:p-9 <?php if ($key == 1) { echo ' order-1'; } ?>"><img class="w-full hidden md:block" src="<?php echo $section['imagine_sectiune']; ?>" alt="hero"/></div></div></div> <?php } ?> <div class="hidden md:block paralax-section reteaua-noastra-bg bg-fixed h-96"></div><div class="reteaua-noastra"><div class="retea-headline background-blue py-5"><h5 class="text-center text-3xl md:text-5xl">Rețeaua Noastră</h5></div><div class="md:container m-auto grid gird-cols-1 lg:grid-cols-3 pb-5"> <?php
+        $args = array(
+            'post_type' =>
+        'post' ); $counter = 1; $loop = new WP_Query($args); while
+        ($loop->have_posts()) { $loop->the_post(); ?> <div class="card flex flex-col mt-16 text-center py-12 <?php
+            if
+            ($counter
+            %
+            2
+            ==
+            0)
+            {
+            echo
+            '
+            background-blue';
+            }
+            ?> "><h5 class="text-2xl font-bold px-2 md:px-0"><?php the_title(); ?></h5><p class="adresa font-bold"><?php echo get_field('oras'); ?></p><span class="subadress"><?php echo get_field('adresa'); ?></span><p class="font-bold"><?php echo get_field('tip_centru'); ?></p> <?php $serviciiAdresa = get_field('servicii_zonale'); ?> <div class="servicii"> <?php if ($serviciiAdresa) {
+                        foreach ($serviciiAdresa as $serv) { ?> <p class="font-bold"><?php echo $serv['titlu']; ?></p><span><?php echo $serv['subtitlu']; ?></span> <?php }
+                        $counter++;
+                    } ?> </div><div class="w-4/5 border-2 m-auto px-5 py-2 mt-5 flex justify-around"><a href="<?php echo get_field('link_google_maps')['url']; ?>" onclick="gtag_report_conversion_localizare(https://centrulmedicalbacau.ro/test-covid/)" target="_blank"><p><span>Localizare</span></p></a></div><div class="w-4/5 border-2 m-auto px-5 py-2 mt-5 flex justify-around"><a href="#programare"><p><span>Programare Online</span></p></a></div></div> <?php }
+        wp_reset_postdata();  ?> </div></div><div class="contact-header text-center py-5"><h5 class="text-3xl md:text-3xl">Contact</h5></div><div id="contact" class="contact-section container m-auto py-8 px-5"><div class=""><div class="contact-container container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"><div class="section-one"> <?php echo get_custom_logo(); ?> <p>www.centrulmedicalbacau.ro</p><hr/><p>Telefon: <b><a href="tel:+40723121782" onclick="gtag_report_conversion(https://centrulmedicalbacau.ro/test-covid/)">+40 (723) 121 782</a> | <a href="tel:+40234702732">+40 (234) 702 732</a></b></p><p>Telefon laborator: <b><a href="tel:+40799822733">+40 (799) 822 733</a></b></p><p>E-mail: <a href="mailto:psihomedbacau@yahoo.com">psihomedbacau@yahoo.com</a></p><p>Orar: <b>Luni-Vineri 08–19 | Sâmbătă 08–13</b></p></div><div class="section-two"><h5>Adrese:</h5><p><b>Bacău, str. Bucium nr 25</b></p><p><b>Focșani, Bulevardul Unirii 13</b></p><p><b>Buzău, Bulevardul Unirii 8</b></p><p><b>București, Veranda Mall:</b></p><p>Șoseaua Pantelimon 16, bl. 5B, sc A</p><p><b>Galați, La Păpădie – Drive-thru</b></p><p>parcare Bulevardul George Coșbuc, Casa de Cultură a Sindicatelor</p></div><div class="section-two"><h5>Unități Mobile de Recoltare Psihomed:</h5><p><b>Galați în parcare La Păpădie</b></p><p>Bulevardul George Coșbuc, Casa de Cultură a Sindicatelor</p><p><b>Iași în parcare Centrul Comercial Felicia</b></p><p>Strada Bucium nr. 36, Iași 700265</p><p><b>Botoșani în parcare Shopping Center</b></p><p>Bulevardul Mihai Eminescu nr.6, Botoșani 710014</p><p><b>Suceava în parcare Shopping City</b></p><p>Calea Unirii 27B, Suceava 720166</p></div></div></div></div><script src="main.99302cca394f8ad1cce4.js"></script></body></html>
